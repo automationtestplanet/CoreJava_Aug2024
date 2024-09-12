@@ -1,5 +1,7 @@
 package assignments.sangita;
 
+import java.util.Arrays;
+
 public class Assignment1 {
 
 	// Write a reusable program to check the given tow Strings/numbers are anagram
