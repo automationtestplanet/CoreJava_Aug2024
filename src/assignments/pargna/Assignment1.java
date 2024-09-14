@@ -7,7 +7,6 @@ public class Assignment1 {
 	// Ex: abc12Ab#34&5Cd6&CG -> 123456 -> 654321
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String str = "abc12Ab#34&5Cd6&CG";
 		System.out.println(str.replaceAll("[^0-9]", ""));
 
