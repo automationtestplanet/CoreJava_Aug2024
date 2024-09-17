@@ -157,44 +157,58 @@ public class InterviewQuestionsOnFundamentals {
 	}
 
 	public static void findRepeatingCharactersFromString(String str) {
-		for(char eachChar : str.toCharArray()) {
-			if( str.indexOf(String.valueOf(eachChar)) != str.lastIndexOf(String.valueOf(eachChar))) {
-				System.out.println(eachChar+" is a repeating character");
-			}				
-			str = str.replaceAll(String.valueOf(eachChar),"");
+		for (char eachChar : str.toCharArray()) {
+			if (str.indexOf(String.valueOf(eachChar)) != str.lastIndexOf(String.valueOf(eachChar))) {
+				System.out.println(eachChar + " is a repeating character");
+			}
+			str = str.replaceAll(String.valueOf(eachChar), "");
 		}
 	}
-	
-	public static void reverseWordsInASentenseWithoutChangingTheirPostion(String sentense) {		
+
+	public static void reverseWordsInASentenseWithoutChangingTheirPostion(String sentense) {
 		String revSrentense = "";
-		for(String eachWord : sentense.split(" ")) {
+		for (String eachWord : sentense.split(" ")) {
 			String revWrod = "";
-			for(char eachChar : eachWord.toCharArray())
-				revWrod = eachChar + revWrod;			
+			for (char eachChar : eachWord.toCharArray())
+				revWrod = eachChar + revWrod;
 			revSrentense = revSrentense + revWrod + " ";
 		}
 		System.out.println(revSrentense.trim());
 	}
-	
-	public static void findRepeatingWordsAndItsCountFromSentense(String sentense) {		
-		for(String eachWord : sentense.split(" ")) {
+
+	public static void findRepeatingWordsAndItsCountFromSentense(String sentense) {
+		for (String eachWord : sentense.split(" ")) {
 			int count = 0;
-			for(String eachWord2 : sentense.split(" ")) {
-				if(eachWord.trim().equals(eachWord2.trim()))
+			for (String eachWord2 : sentense.split(" ")) {
+				if (eachWord.trim().equals(eachWord2.trim()))
 					count++;
-			}			
-			if(count > 1)
-				System.out.println(eachWord + " is repeating word and repeated "+ count+ " times");
-			
+			}
+			if (count > 1)
+				System.out.println(eachWord + " is repeating word and repeated " + count + " times");
+
 			sentense = sentense.replaceAll(eachWord, "").trim();
 		}
 	}
-	
+
 	public static void findVowelCharactersFromString(String str) {
-		for(char eachChar : str.toCharArray()) {
-			if("aeiou".contains(String.valueOf(eachChar).toLowerCase()))
+		for (char eachChar : str.toCharArray()) {
+			if ("aeiou".contains(String.valueOf(eachChar).toLowerCase()))
 				System.out.print(eachChar);
 		}
+	}
+
+	public static boolean findStrings(String[] strArr, String findStr) {
+
+		String tempStr = "";
+		for (String eachStr : strArr) {
+			if (findStr.contains(eachStr))
+				tempStr += eachStr;
+		}
+
+		System.out.println(tempStr);
+		if (findStr.equals(tempStr))
+			return true;
+		return false;
 	}
 
 	public static void main(String[] args) {
@@ -233,7 +247,7 @@ public class InterviewQuestionsOnFundamentals {
 		System.out.println("-------------------Right Half Pyramid----------------");
 		printRightHalfPyramid(5);
 		System.out.println("");
-		
+
 		System.out.println("-------------------Reverse Right Half Pyramid----------------");
 		printReverseRightHalfPyramid(5);
 		System.out.println("");
@@ -248,31 +262,53 @@ public class InterviewQuestionsOnFundamentals {
 		int[] intArr2 = { 10, 30, 50, 20, 10, 40, 20, 50, 10 };
 		findRepeatingNumbersFromArray(intArr2);
 		System.out.println("");
-		
+
 		System.out.println("----------------------Print repeating characters from the string--------------");
 		findRepeatingCharactersFromString("Hello");
 		System.out.println("");
 
-		System.out.println("-------------------Reverse words fromsentense without changing their positions------------------------");
+		System.out.println(
+				"-------------------Reverse words fromsentense without changing their positions------------------------");
 		reverseWordsInASentenseWithoutChangingTheirPostion("Hello Java");
 		reverseWordsInASentenseWithoutChangingTheirPostion("Hello Java This is Hello Java World");
 		System.out.println("");
-		
-		System.out.println("------------------------Print repeating words and its count from sentrnse -----------------");
+
+		System.out
+				.println("------------------------Print repeating words and its count from sentrnse -----------------");
 		findRepeatingWordsAndItsCountFromSentense("Hello Java This is Hello Java World Hello");
 		System.out.println("");
-		
+
 		System.out.println("-----------------------Print Vowels from the given String---------------");
 		findVowelCharactersFromString("Hello Java");
 		System.out.println("");
 		findVowelCharactersFromString("Hello Java World");
 		System.out.println("");
-		
-		
+
 		// String str = "abCdcAB" -> 27 28 3 30 29 1 2
 		// String str = "a$bdE&H#e" -> reverse string without reversing the special
 		// characters -> e$H&Edb#a
 		// String str = "Abcd1234%#&56KLLCcsk" -> 1+2+3+4+5+6 -> 21
+
+		// write a reusable program to print true or false if the given string words
+		// exists in array of Strings
+		// String[] strArr = {"I","Am", "Java","Programmer","At","Infosys"}
+		// Input = Java -> print true
+		// Input = "JavaProgrammer" -> print true
+		// Input = "IProgrammer" -> print true
+		// Input = "Programmer Infosys" -> print true
+		// Input = "Wipro" -> print false
+		// Input = "ProgrammerWipro" -> print false
+		// Input = "AmWipro" -> print false
+		// Input = "Infosys At" -> print false
+		String[] strArr = { "I", "Am", "Java", "Programmer", "At", "Infosys" };
+		System.out.println(findStrings(strArr, "Java")); // true
+		System.out.println(findStrings(strArr, "JavaProgrammer")); // true
+		System.out.println(findStrings(strArr, "IProgrammer")); // true
+		System.out.println(findStrings(strArr, "ProgrammerInfosys")); // true
+		System.out.println(findStrings(strArr, "Wipro")); // false
+		System.out.println(findStrings(strArr, "ProgrammerWipro")); // false
+		System.out.println(findStrings(strArr, "AmWipro")); // false
+		System.out.println(findStrings(strArr, "InfosysAt")); // false
 
 	}
 
