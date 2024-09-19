@@ -15,8 +15,15 @@ public class UnCheckedException extends ExceptionExample {
 	public void addition(int a, int b) {
 		System.out.println(a + b);
 	}
+	
+	public static void modDivision(int a,int b) throws UserdefinedException {
+		if(b > 0)
+			System.out.println(a%b);
+		else
+			throw new UserdefinedException("B value should be greater than 0");
+	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UserdefinedException{
 		System.out.println("Program Execution Started");
 
 		ExceptionExample unCheExp = new UnCheckedException();
@@ -85,6 +92,13 @@ public class UnCheckedException extends ExceptionExample {
 		} finally {
 			System.out.println("Close DB Connection");
 		}
+		
+		
+		modDivision(10,20);
+		
+		modDivision(10,3);
+		
+		modDivision(10,0);
 
 	}
 

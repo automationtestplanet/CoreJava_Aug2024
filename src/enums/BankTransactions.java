@@ -87,6 +87,10 @@ public class BankTransactions {
 		icicBank.displayBalance();
 
 		icicBank.withdrawl(AccountType.SAVINGS,105000);
+		
+		
+		icicBank.deposit(AccountType.SAVINGS, 10000);
+		icicBank.displayBalance();
 
 	}
 
