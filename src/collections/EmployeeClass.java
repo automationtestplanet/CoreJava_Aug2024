@@ -1,18 +1,20 @@
 package collections;
 
-public class Employee {
+public class EmployeeClass {
 	public String name;
 	public int empId;
 	public String job;
+	public long salary;
 
-	public Employee() {
+	public EmployeeClass() {
 
 	}
 
-	public Employee(String name, int empId, String job) {
+	public EmployeeClass(String name, int empId, String job, long salary) {
 		this.name = name;
 		this.empId = empId;
 		this.job = job;
+		this.salary = salary;
 	}
 
 	public String getName() {
@@ -26,6 +28,9 @@ public class Employee {
 	public String getJob() {
 		return job;
 	}
-	
-	
+
+	public long getSalary() {
+		return salary;
+	}
+
 }

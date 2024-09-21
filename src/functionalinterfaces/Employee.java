@@ -1,4 +1,4 @@
-package collections;
+package functionalinterfaces;
 
 public class Employee {
 	public String name;
