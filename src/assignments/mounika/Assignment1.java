@@ -40,7 +40,7 @@ public class Assignment1 {
 		System.out.println("num = " + number + " = " + digitSum + " -> " + (isPrimeSum ? "prime" : "not prime"));
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		int[] numbers = { 123, 124, 13 };
 		for (int number : numbers) {
 			printSumOfDigitsOfPrimeOrNot(number);
